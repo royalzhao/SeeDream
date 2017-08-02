@@ -425,6 +425,27 @@
     <script type="text/javascript" src="js/date/nav.js" ></script>
     <script type="text/javascript" src="js/vue.js" ></script>
     <script src="js/date/recommond.js" type="text/javascript" charset="utf-8"></script>
-    <script src="js/date/vue_index_date.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+    	function _request_nav1(){
+			return nav1;
+		}
+		function _request_recommond(){
+			return recommond;
+		}
+		
+		var _vm1 = new Vue({
+			el:".navLL",
+			data:{
+				nav1_list:_request_nav1()
+			}
+		});
+		var _recommond = new Vue({
+			el:"#recommond",
+			data:{
+				recommond_list:_request_recommond()
+			}
+		});
+
+    </script>
 	</body>
 </html>
