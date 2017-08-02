@@ -16,7 +16,7 @@
 	<body>
 		<section class="header">
 			<div class="head">
-				<nav class="navbar  wow fadeInDown" id="header-nav">
+				<nav class="navbar wow fadeInDown" id="header-nav">
 				  <div class="">
 				    <!-- Brand and toggle get grouped for better mobile display -->
 				    <div class="navbar-header">
@@ -32,7 +32,7 @@
 				    <!-- Collect the nav links, forms, and other content for toggling -->
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				      <ul class="nav navbar-nav navbar-right">
-				        <li><a class="scrollto" href="#myCarousel">主页</a></li>
+				      	<li><a class="scrollto" href="#myCarousel">主页</a></li>
 				        <li><a class="scrollto" href="#about">关于我们</a></li>
 				        <li><a class="scrollto" href="#gallery-1">美食欣赏</a></li>
 				        <li><a class="scrollto" href="#recommond">今日推荐</a></li>
@@ -41,9 +41,9 @@
 				        <li class="dropdown">
 				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">其它 <span class="caret"></span></a>
 				          <ul class="dropdown-menu">
-				            <li><a href="#">美食资讯</a></li>
-				            <li><a href="#">在线订购</a></li>
-				            <li><a href="#">收信箱</a></li>
+				            <li><a href="main.html">美食资讯</a></li>
+				            <li><a href="mall.html">在线预定</a></li>
+				            <li><a href="FoodDIY.html">美食DIY</a></li>
 				          </ul>
 				        </li>
 				      </ul>
@@ -266,20 +266,22 @@
 		</div>
     </section>
     
-    <section class="recommond" id="recommond">
-    	<div class="container">
+    <section class="recommond" >
+    	<div class="container" id="recommond" >
     		<h2 class="wow fadeInDown">今日推荐<br /><span>-------------</span></h2>
-			<div class="row">
+			<div class="row" v-for="el in recommond_list">
 				<div class="col-md-6 col-sm-6 col-xs-12 wow fadeInLeft">
-					<img src="img/foods/recommond.jpg" class="img-thumbnail" width="100%" />
+					<img :src="el.img" class="img-thumbnail" width="100%" />
 				</div>
 				<div class="col-md-6 col-sm-6 col-xs-12 wow fadeInRight">
-					<h3>凤囚凰</h3>
-					<p>今日特别推荐菜品：凤囚凰</p>
-					<p>本菜品所有原材料采摘获取时间都不超过一小时，均保留最原始新鲜风味；</p>
+					
+					<p>今日特别推荐菜品：<h4>{{el.head}}</h4></p>
+					<!--<p>本菜品所有原材料采摘获取时间都不超过一小时，均保留最原始新鲜风味；</p>
 					<p>餐厅最顶级厨师亲自上阵，让你领略真正的人间美味；</p>
 					<p>	鲜辣的汤汁让你欲罢不能，美味的菜肴让你忘乎所以;</p>
-					<p>	我已经迫不及待了，你不想来尝尝嘛？</p>
+					<p>	我已经迫不及待了，你不想来尝尝嘛？</p>-->
+					<p>{{el.content}}</p>
+					
 					<p>
 						<button class="btn btn-default">在线订购</button>
 					</p>
@@ -292,7 +294,7 @@
     	<div class="container">
     		<h2 class="wow fadeInDown">特价套餐<br /><span>-------------</span></h2>
     		<div class="row">
-    			<div class="col-md-4 col-sm-4 col-xs-12 wow fadeInLeft">
+    			<div class="col-md-4 col-sm-4 col-xs-12 wow fadeInDown">
     				<ul class="list-group">
     					<li class="list-group-item">
     						<h4>套餐一</h4>
@@ -309,7 +311,7 @@
     					</li>
     				</ul>
     			</div>
-    			<div class="col-md-4 col-sm-4 col-xs-12 wow fadeInUp">
+    			<div class="col-md-4 col-sm-4 col-xs-12 wow fadeInDown">
     				<ul class="list-group">
     					<li class="list-group-item">
     						<h4>套餐二</h4>
@@ -326,7 +328,7 @@
     					</li>
     				</ul>
     			</div>
-    			<div class="col-md-4 col-sm-4 col-xs-12 wow fadeInRight">
+    			<div class="col-md-4 col-sm-4 col-xs-12 wow fadeInDown">
     				<ul class="list-group">
     					<li class="list-group-item">
     						<h4>套餐三</h4>
@@ -390,17 +392,17 @@
     
     <footer>
     	<div class="container">
-    		<nav>
+    		<nav class="navLL">
 				<ul>
-					<li><a class="scrollto" href="#myCarousel">主页</a></li>
-					<li><a class="scrollto" href="#about">关于我们</a></li>
+					<li v-for="el in nav1_list"><a class="scrollto" :href="el.href">{{el.nav}}</a></li>
+					<!--<li><a class="scrollto" href="#about">关于我们</a></li>
 					<li><a class="scrollto" href="#gallery-1">美食欣赏</a></li>
 					<li><a class="scrollto" href="#recommond">今日推荐</a></li>
 					<li><a class="scrollto" href="#price">特价套餐</a></li>
-					<li><a class="scrollto" href="#contact">联系我们</a></li>
-					<li><a href="#">美食资讯</a></li>
-					<li><a href="#">在线订购</a></li>
-					<li><a href="#">收信箱</a></li>
+					<li><a class="scrollto" href="#contact">联系我们</a></li>-->
+					<li><a href="main.html">美食资讯</a></li>
+					<li><a href="mall.html">在线预定</a></li>
+					<li><a href="FoodDIY.html">美食DIY</a></li>
 				</ul>
 			</nav>
 			<h2>See Dream</h2>
@@ -418,5 +420,11 @@
     <script src="js/wow.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="js/main.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="js/map.js" ></script>
+    
+    <!--处理数据-->
+    <script type="text/javascript" src="js/date/nav.js" ></script>
+    <script type="text/javascript" src="js/vue.js" ></script>
+    <script src="js/date/recommond.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/date/vue_index_date.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 </html>

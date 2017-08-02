@@ -314,8 +314,8 @@ footer p{
 	font-weight: bold;
 }
 .main-container .container .row div:nth-of-type(1) ul li .row div:nth-of-type(2) p{
-	margin-bottom: 7rem;
-	height: 3rem;
+	height: auto;
+	margin-bottom: 2rem;
 }
 .main-container .container .row div:nth-of-type(1) ul li .row div:nth-of-type(2) span{
 	bottom: 0;
@@ -391,6 +391,9 @@ footer p{
 	float: right;
 	color: #999;
 }
+.main-container .container .row div:nth-of-type(2) .hot-news ul li span i{
+	color: #EC971F;
+}
 .main-container .container .row div:nth-of-type(2) .new-news{
 	padding: 1rem;
 }
@@ -430,9 +433,56 @@ footer p{
 	width: 100%;
 }
 /*美食资讯部分结束*/
+
+
 /*在线订购部分开始*/
-.mall-container .container .row div:nth-of-type(2){
+.mall-container{
+	margin: 2rem 0;
+}
+.mall-container .container .row .left{
+	background: #FFFFFF;
+	padding-top: 1rem;
+}
+.mall-container .container .row .left .ul-content{
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+.mall-container .container .row .left .ul-content li{
+	border: 1px solid #EC971F;
+	text-align: center;
+	margin: 0.5rem;
+	width: 23rem;
+}
+.mall-container .container .row .left .ul-content li .mall-list-img{
 	
+}
+.mall-container .container .row .left .ul-content li .mall-list-img img{
+	width: 100%;
+}
+
+.mall-container .container .row .left .ul-content li .mall-list-head h4:nth-of-type(1){
+	color: #EC971F;
+	display: block;
+}
+.mall-container .container .row .left .ul-content li .mall-list-head h4:nth-of-type(2){
+	color: #EC971F;
+	display: none;
+}
+.mall-container .container .row .left .ul-content li .mall-list-head h4:nth-of-type(2) a{
+	color: #EC971F;
+	font-size: 20px;
+	cursor: pointer;
+}
+.mall-container .container .row .left .ul-content li:hover .mall-list-head h4:nth-of-type(1){
+	display: none;
+}
+
+.mall-container .container .row .left .ul-content li:hover .mall-list-head h4:nth-of-type(2){
+	display: block;
+}
+.mall-container .container .row div:nth-of-type(2){
+	background: #FFFFFF;
 }
 .mall-container .container .row div:nth-of-type(2) .top-selling{
 	padding: 1rem;
@@ -468,12 +518,82 @@ footer p{
 	color: #EC971F;
 	font-size: 16px;
 }
+.mall-container .container .row .left nav{
+	text-align: center;
+}
 
 
 
+/*侧边栏开始*/
+aside{
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: 5rem;
+	height: 100%;
+	background: #333;
+	display: block;
+}
+aside ul{
+	margin-top: 20rem;
+}
+aside ul li{
+	margin: 8rem 0;
+	text-align: center;
+}
+aside ul li a{
+	color: #ccc;
+	font-size: 2.5rem;
+}
+aside ul li:nth-of-type(1) a{
+	width: 30px;
+	height: 30px;
+	padding: 5px;
+	border-radius: 20px;
+	background: #ccc;
+	color: #333;
+	font-size: 2rem;
+}
+aside ul li:nth-of-type(1) a:hover{
+	color: #EC971F;
+}
+aside ul li:nth-of-type(2){
+	position: relative;
+}
+aside ul li:nth-of-type(2) .mall-list{
+	position: absolute;
+	left: -150px;
+	top: -300%;
+	width: 15rem;
+	height: auto;
+	background: #333;
+	z-index: 100;
+	padding: 1rem;
+
+}
+aside ul li:nth-of-type(2) .active{
+	display: none;
+}
+aside ul li:nth-of-type(2) .mall-list ul{
+	margin-top: 0;
+	margin-bottom: 1rem;
+	max-height: 180px;
+	overflow-y: scroll;
+}
+aside ul li:nth-of-type(2) .mall-list ul li{
+	margin: 0;
+	color: #FFFFFF;
+	padding: 1rem;
+}
+aside ul li:nth-of-type(2) .mall-list .btn-default:hover{
+	background: #EC971F;
+	color: #FFFFFF;
+	border-color: #EC971F;
+}
+/*侧边栏结束*/
 
 
-/*在线订购部分结束*/
+/*在线预定部分结束*/
 
 
 
@@ -519,4 +639,8 @@ footer p{
 	.main-container .container .row div:nth-of-type(1) ul li .row div:nth-of-type(2) p{
 		padding-right: 0;
 	}
+	aside{
+		display: none;
+	}
+	
 }

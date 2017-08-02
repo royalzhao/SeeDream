@@ -29,7 +29,7 @@
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				      <ul class="nav navbar-nav">
 				        <li><a href="main.html">美食资讯</a></li>
-				        <li><a href="#">在线订购</a></li>
+				        <li><a href="#">在线预定</a></li>
 				        <li><a href="#">收信箱</a></li>
 				      </ul>
 				      <ul class="nav navbar-nav navbar-right">
@@ -89,7 +89,7 @@
 					<ul>
 						<li><a href="index.html#myCarousel">主页</a></li>
 						<li><a href="main.html">美食资讯</a></li>
-						<li><a href="#">在线订购</a></li>
+						<li><a href="#">在线预定</a></li>
 						<li><a href="#">收信箱</a></li>
 						<li><a href="login.html">登录</a></li>
 						<li><a href="register.html">注册</a></li>
@@ -109,9 +109,7 @@
 			var btn = document.getElementById("btn");
 			var alert = document.getElementsByClassName("alert");
 			var repass = document.getElementById("repassword");
-			for(var i = 0;i<user.length;i++){
-				console.log(user[i].id);
-			}
+			
 			btn.onclick = function(){
 				var t,y,k;
 				if(account.value.length <2 || account.value.length >6){
@@ -145,12 +143,12 @@
 				
 				
 				if(t && y && k){
-					var dat = {'id':user.length+1,'account':account.value,'password':pass.value}
-					user.push(dat);
-					for(var i = 0;i<user.length;i++){
-						console.log(user[i].id);
-					}
-					//window.location.href="login.html";
+//					var dat = {'id':user.length+1,'account':account.value,'password':pass.value}
+//					user.push(dat);
+//					for(var i = 0;i<user.length;i++){
+//						console.log(user[i].id);
+//					}
+					window.location.href="login.html";
 				}
 				
 				return false;

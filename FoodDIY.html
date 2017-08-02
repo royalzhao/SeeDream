@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>美食DIY</title>
+		<title>美食资讯</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="shortcut icon" href="img/icofont.png" />
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
@@ -11,6 +11,7 @@
 		
 	</head>
 	<body>
+		<div id="DIY">
 		<section class="header">
 			<div class="head">
 				<nav class="navbar  wow fadeInDown" id="header-nav">
@@ -30,7 +31,7 @@
 				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				      <ul class="nav navbar-nav">
 				        <li><a href="main.html">美食资讯</a></li>
-				        <li><a href="#">在线订购</a></li>
+				        <li><a href="mall.html">在线预定</a></li>
 				        <li><a href="FoodDIY.html">美食DIY</a></li>
 				      </ul>
 				      <ul class="nav navbar-nav navbar-right">
@@ -47,8 +48,30 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-sm-8 col-xs-12">
-						
-						
+						<div class="search">
+							<div class="input-group">
+						      	<input type="search" class="form-control" id="search-input" placeholder="搜索">
+						      	<div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+						    </div>
+						</div>
+						<ul v-for="f in foodDIY_list">
+							
+							<li>
+								<div class="row">
+									<div class="col-md-4 col-sm-4 col-xs-12">
+										<div>
+											<img :src="f.img"/>
+										</div>
+									</div>
+									<div class="col-md-8 col-sm-8 col-xs-12">
+										<a href="#"><h4>{{f.title}}</h4></a>
+										<p>{{f.abstract}}</p>
+										<span>发布日期：{{f.putDate}}</span><span>浏览：{{f.see}}</span><span>作者：{{f.author}}</span>
+									</div>
+								</div>
+							</li>
+							
+						</ul>
 						<nav>
 						  	<ul class="pagination">
 								<li>
@@ -80,24 +103,29 @@
 						</nav>
 					</div>
 					<div class="col-md-4 col-sm-4 col-xs-12">
-						
+						<div class="search">
+							<div class="input-group">
+						      	<input type="search" class="form-control" id="search-input" placeholder="搜索">
+						      	<div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+						    </div>
+						</div>
 						<div class="hot-news">
 							<div class="hot-news-head">
-								<h4>热门排行</h4>
+								<h4>评分最高</h4>
 							</div>
 							<ul>
-								<li><a href="#">文章1</a><span>(浏览：754)</span></li>
-								<li><a href="#">文章2</a><span>(浏览：754)</span></li>
-								<li><a href="#">文章3</a><span>(浏览：754)</span></li>
-								<li><a href="#">文章4</a><span>(浏览：754)</span></li>
-								<li><a href="#">文章5</a><span>(浏览：754)</span></li>
-								<li><a href="#">文章6</a><span>(浏览：754)</span></li>
-								<li><a href="#">文章7</a><span>(浏览：754)</span></li>
+								<li><a href="#">文章1</a><span><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i></span></li>
+								<li><a href="#">文章2</a><span><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i></span></li>
+								<li><a href="#">文章3</a><span><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i></span></li>
+								<li><a href="#">文章4</a><span><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i></span></li>
+								<li><a href="#">文章5</a><span><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i></span></li>
+								<li><a href="#">文章6</a><span><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i></span></li>
+								<li><a href="#">文章7</a><span><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i></span></li>
 							</ul>
 						</div>	
 						<div class="new-news">
 							<div class="new-news-head">
-								<h4>最新文章</h4>
+								<h4>最新DIY</h4>
 							</div>
 							<ul>
 								<li><a href="#">文章1</a><span>(3分钟前)</span></li>
@@ -149,8 +177,8 @@
 					<ul>
 						<li><a href="index.html#myCarousel">主页</a></li>
 						<li><a href="main.html">美食资讯</a></li>
-						<li><a href="#">在线订购</a></li>
-						<li><a href="FoodDIY.html">美食DIY</a></li>
+						<li><a href="#">在线预定</a></li>
+						<li><a href="#">收信箱</a></li>
 						<li><a href="login.html">登录</a></li>
 						<li><a href="register.html">注册</a></li>
 					</ul>
@@ -160,6 +188,21 @@
 				<p>(c) Copyright 2017 赵帅-zs. All Rights Reserved. </p>
 	    	</div>
 	    </footer>
+		</div>
 		
+		
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/date/foodDIY.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			function _request_foodDIY(){
+				return foodDIY;
+			}
+			var main = new Vue({
+				el:"#DIY",
+				data:{
+					foodDIY_list:_request_foodDIY()
+				}
+			});
+		</script>
 	</body>
 </html>
