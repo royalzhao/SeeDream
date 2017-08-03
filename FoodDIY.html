@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>美食资讯</title>
+		<title>美食DIY</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="shortcut icon" href="img/icofont.png" />
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
@@ -202,6 +202,10 @@
 				data:{
 					foodDIY_list:_request_foodDIY()
 				}
+			});
+			$('#myCarousel').carousel({
+				//设置自动播放/2 秒
+				interval : 3000,
 			});
 		</script>
 	</body>

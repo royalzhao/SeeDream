@@ -73,5 +73,15 @@ $(function(){
 		  }
 		);
 		wow.init();
+		
+		
+		//bootstrap轮播适应移动端可触摸
+		var myTouch = util.toucher($('#myCarousel'));  
+  
+		myTouch.on('swipeLeft',function(e){  
+		    $('#carright').click();  
+		}).on('swipeRight',function(e){  
+		    $('#carleft').click();  
+		});  
 			
 });

@@ -71,7 +71,7 @@ li{
 	height: 25rem;
 }
 .login-container form {
-    width: 305px;
+    width: 290px;
     margin: 15px auto 0 auto;
     text-align: center;
 }
@@ -105,7 +105,7 @@ li{
 	background-position:-216px -108px;
 }
 .login-container input{
-    width: 305px;
+    width: 100%;
     height: 42px;
     margin-top: 25px;
     padding: 0 15px;
@@ -173,7 +173,7 @@ li{
 
 .login-container .submit{
     cursor: pointer;
-    width: 300px;
+    width: 290px;
     height: 44px;
     margin-top: 25px;
     padding: 0;
@@ -471,7 +471,7 @@ footer p{
 }
 .mall-container .container .row .left .ul-content li .mall-list-head h4:nth-of-type(2) a{
 	color: #EC971F;
-	font-size: 20px;
+	font-size: 19px;
 	cursor: pointer;
 }
 .mall-container .container .row .left .ul-content li:hover .mall-list-head h4:nth-of-type(1){
@@ -583,7 +583,14 @@ aside ul li:nth-of-type(2) .mall-list ul{
 aside ul li:nth-of-type(2) .mall-list ul li{
 	margin: 0;
 	color: #FFFFFF;
-	padding: 1rem;
+	padding: 0.5rem;
+}
+aside ul li:nth-of-type(2) .mall-list ul li .del{
+	cursor: pointer;
+	margin-left: 1rem;
+}
+aside ul li:nth-of-type(2) .mall-list ul li .del:hover{
+	color: #EC971F;	
 }
 aside ul li:nth-of-type(2) .mall-list .btn-default:hover{
 	background: #EC971F;
@@ -591,10 +598,72 @@ aside ul li:nth-of-type(2) .mall-list .btn-default:hover{
 	border-color: #EC971F;
 }
 /*侧边栏结束*/
-
-
 /*在线预定部分结束*/
 
+/*新闻资讯内容页*/
+.breadcrumb{
+	background: transparent;
+}
+.main-container .container .row div:nth-of-type(1) .main-content{
+	padding: 2rem;
+}
+.main-container .container .row div:nth-of-type(1) .main-content .main-content-head h3{
+	
+}
+
+.main-container .container .row div:nth-of-type(1) .main-content .main-content-head p{
+	text-align: center;
+	margin-top: 3rem;
+	margin-bottom: 2rem;
+	color: #999;
+	font-size: 13px;
+}
+.main-container .container .row div:nth-of-type(1) .main-content .main-content-head p span{
+	margin: 0 2rem;	
+}
+.main-container .container .row div:nth-of-type(1) .main-content .main-content-head .adress{
+	border-top: 1px dashed #CCCCCC;
+	border-bottom: 1px dashed #CCCCCC;
+}
+.main-container .container .row div:nth-of-type(1) .main-content .main-content-head .adress .breadcrumb span{
+	color: #EC971F;
+	font-size: 16px;
+	margin: 0px 10px 0 0;
+}
+.main-container .container .row div:nth-of-type(1) .main-content .main-content-head .adress .breadcrumb li a{
+	color: #D58512;
+	opacity: 0.8;
+}
+.main-container .container .row div:nth-of-type(1) .main-content .main-content-head .adress .breadcrumb li a:hover{
+	opacity: 1;
+}
+.main-container .container .row div:nth-of-type(1) .main-content .main-content-body{
+	margin-top: 3rem;
+}
+.main-container .container .row div:nth-of-type(1) .main-content .main-content-body p{
+	text-indent: 2em;
+	color: #444;
+	font-size: 15px;
+	line-height: 25px;
+}
+.breadcrumb{
+	padding: 8px 15px 8px 15px;
+	margin-bottom: 0px;
+}
+.main-container .container .row div:nth-of-type(1) .main-content .main-content-nav nav .pager li a{
+	color: #EC971F;
+	transition: all 0.45s;
+	-webkit-transition: all 0.45s;
+	-moz-transition: all 0.45s;
+	-ms-transition: all 0.45s;
+}
+.main-container .container .row div:nth-of-type(1) .main-content .main-content-nav nav .pager li a:hover{
+	color: #FFFFFF;
+	border-color: #EC971F;
+	box-shadow: inset 0 0 0 2em #EC971F;
+}
+
+/*新闻资讯内容也结束*/
 
 
 
@@ -617,6 +686,12 @@ aside ul li:nth-of-type(2) .mall-list .btn-default:hover{
 	#bs-example-navbar-collapse-1{
 		background: #333;
 		z-index: 99;
+	}
+	.login-container{
+		padding-top: 5rem;
+	}
+	.login-container .container .row .img-login .row a span{
+		margin: 1rem auto;
 	}
 	.nav > li > a:focus, .nav > li > a{
 		color: #FFF;
@@ -641,6 +716,9 @@ aside ul li:nth-of-type(2) .mall-list .btn-default:hover{
 	}
 	aside{
 		display: none;
+	}
+	.main-container .container .row div:nth-of-type(1) .main-content{
+		padding: 0rem;
 	}
 	
 }
