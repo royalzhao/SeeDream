@@ -720,5 +720,8 @@ aside ul li:nth-of-type(2) .mall-list .btn-default:hover{
 	.main-container .container .row div:nth-of-type(1) .main-content{
 		padding: 0rem;
 	}
+	.main-container .container .row div:nth-of-type(1) .main-content .main-content-head p span{
+		margin:0 1rem;
+	}
 	
 }
