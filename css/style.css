@@ -395,4 +395,8 @@ footer p{
 	.dropdown-menu>li>a{
 		color: #FFFFFF;
 	}
+	.header-carousel .hero-carousel .carousel-inner .item .carousel-content{
+		display: none;
+	}
+	
 }
