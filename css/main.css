@@ -663,9 +663,134 @@ aside ul li:nth-of-type(2) .mall-list .btn-default:hover{
 	box-shadow: inset 0 0 0 2em #EC971F;
 }
 
-/*新闻资讯内容也结束*/
+/*新闻资讯内容页结束*/
 
+/*在线订购详情页*/
+.mall-content{
+	margin: 3rem 0;
+}
+.mall-content .container p{
+	margin: 2rem 0;
+	padding-left: 1rem;
+	border-left: 5px solid #EC971F;
+}
+ .container p span{
+	font-weight: bold;
+}
+.mall-content .container .row div:nth-of-type(1) .mall-content-left{
+	background: #FFFFFF;
+	padding: 1rem 1rem 0 1rem;
+	position: relative;
+}
 
+.mall-content .container .row div:nth-of-type(1) .mall-content-left .mall-list li{
+	padding: 13px 15px;
+	border-bottom: 1px dashed #CCCCCC;
+}
+.mall-content .container .row div:nth-of-type(1) .mall-content-left .mall-list li:nth-last-of-type(1){
+	border: 0;
+}
+.mall-content .container .row div:nth-of-type(1) .mall-content-left .mall-list li span{
+	float:right;
+}
+.mall-content .container .row div:nth-of-type(1) .mall-content-left .mall-list li:nth-of-type(1){
+	font-weight: bold;
+}
+.mall-content .container .row div:nth-of-type(1) .mall-content-left .mall-list li:last-of-type{
+	font-weight: bold;	
+	font-size: 16px;
+}
+.mall-content .container .row div:nth-of-type(1) .mall-content-left .list-san{
+	position: absolute;
+	width: 100%;
+	height: 20px;
+	bottom: -20px;
+	left: 0;
+	background: url(../img/a0_03.png) repeat-x;
+}
+.mall-content .container .row div:nth-of-type(1) .mall-content-left .list-san:before{
+	content: '';
+	position: absolute;
+	z-index: -1;
+	width: 90%;
+	height: 80%;
+	left: 20px;
+	bottom: 31px;
+	background: transparent;
+	box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+	-webkit-box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+	transform: skew(-12deg) rotate(-4deg);
+	-webkit-transform: skew(-12deg) rotate(-4deg);
+}
+.mall-content .container .row div:nth-of-type(1) .mall-content-left .list-san:after{
+	content: '';
+	position: absolute;
+	z-index: -1;
+	width: 90%;
+	height: 80%;
+	right: 20px;
+	bottom: 31px;
+	background: transparent;
+	box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+	-webkit-box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+	transform: skew(12deg) rotate(4deg);
+	-webkit-transform: skew(12deg) rotate(4deg);
+}
+		
+.mall-content .container .row div:nth-of-type(2) .mall-content-right{
+	background: #FFFFFF;
+	padding: 2rem;
+}
+.mall-content .container .row div:nth-of-type(2) .mall-content-right .form-horizontal .form-group:nth-of-type(4) div .pay{
+	position: relative;
+	overflow: hidden;
+}
+.mall-content .container .row div:nth-of-type(2) .mall-content-right .form-horizontal .form-group:nth-of-type(4) div .pay input{
+	position: absolute;
+	top: -20px;
+	left: -20px;
+}
+.mall-content .container .row div:nth-of-type(2) .mall-content-right .form-horizontal .form-group:nth-of-type(4) div .pay span{
+	position: relative;
+	border: 1px solid #CCCCCC;
+	display: block;
+}
+.mall-content .container .row div:nth-of-type(2) .mall-content-right .form-horizontal .form-group:nth-of-type(4) div .pay span .check{
+	position: absolute;	
+	bottom: 0;
+	right: 0;
+	display: none;
+}
+.mall-content .container .row div:nth-of-type(2) .mall-content-right .form-horizontal .form-group:nth-of-type(4) div .pay input:checked~span .check{
+	display: block;
+}
+.mall-content .container .row div:nth-of-type(2) .mall-content-right .form-horizontal .form-group:nth-last-of-type(1){
+	padding: 0 2rem;
+}
+.mall-content .container .row div:nth-of-type(2) .mall-content-right .form-horizontal .form-group:nth-last-of-type(1) label span{
+	font-size: 23px;	
+	color: #EC971F;
+}
+.mall-content .container .row div:nth-of-type(2) .mall-content-right .form-horizontal .form-group:nth-last-of-type(1) input{
+	color: #EC971F;
+	border-color: #EC971F;
+	transition: all 0.45s;
+	-webkit-transition: all 0.45s;
+	-moz-transition: all 0.45s;
+	-ms-transition: all 0.45s;
+}
+.mall-content .container .row div:nth-of-type(2) .mall-content-right .form-horizontal .form-group:nth-last-of-type(1) input:hover{
+	box-shadow: inset 0 0 0 2em #EC971F;
+	-webkit-box-shadow: inset 0 0 0 2em #EC971F;
+	color: #FFFFFF;
+}
+.dtpicker-buttonCont .dtpicker-button{
+	background: #EC971F;
+}
+.dtpicker-header .dtpicker-value{
+	color: #EC971F;
+}
+/*在线订购详情页结束*/
 
 
 @media only screen and (max-width:900px ) {
@@ -722,6 +847,9 @@ aside ul li:nth-of-type(2) .mall-list .btn-default:hover{
 	}
 	.main-container .container .row div:nth-of-type(1) .main-content .main-content-head p span{
 		margin:0 1rem;
+	}
+	.mall-content .container .row div:nth-of-type(2) .mall-content-right{
+		margin-top: 2rem;
 	}
 	
 }
