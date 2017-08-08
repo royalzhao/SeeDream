@@ -608,7 +608,7 @@ aside ul li:nth-of-type(2) .mall-list .btn-default:hover{
 	padding: 2rem;
 }
 .main-container .container .row div:nth-of-type(1) .main-content .main-content-head h3{
-	
+	text-align: center;
 }
 
 .main-container .container .row div:nth-of-type(1) .main-content .main-content-head p{

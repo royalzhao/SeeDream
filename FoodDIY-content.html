@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>美食DIY</title>
+		<title>美食资讯</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="shortcut icon" href="img/icofont.png" />
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
@@ -11,7 +11,7 @@
 		<script src="js/handlebars-v4.0.10.js" type="text/javascript" charset="utf-8" ></script>
 	</head>
 	<body>
-		<div id="DIY">
+		<div id="main-content">
 		<section class="header">
 			<div class="head">
 				<nav class="navbar  wow fadeInDown" id="header-nav">
@@ -47,64 +47,39 @@
 		<section class="main-container">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-8 col-sm-8 col-xs-12">
-						<div class="search">
-							<div class="input-group">
-						      	<input type="search" class="form-control" id="search-input" placeholder="搜索">
-						      	<div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
-						    </div>
-						</div>
-						<script id="template" type="text/x-handlebars-template">
-							{{#each foodDIY}}
-								<li>
-									<div class="row">
-										<div class="col-md-4 col-sm-4 col-xs-12">
-											<div>
-												<img src="{{img}}"/>
-											</div>
-										</div>
-										<div class="col-md-8 col-sm-8 col-xs-12">
-											<a href="FoodDIY-content.html?id={{id}}"><h4>{{title}}</h4></a>
-											<p>{{abstract}}</p>
-											<span>发布日期：{{putDate}}</span><span>浏览：{{see}}</span><span>作者：{{author}}</span>
-										</div>
+					<div class="col-md-8 col-sm-8 col-xs-12" >
+						 <script id="main-template" type="text/x-handlebars-template">
+							<div class="main-content">
+								<div class="main-content-head">
+									<h3>{{title}}</h3>
+									<p><span>发布时间：{{putDate}}</span><span>编辑:{{author}}</span><span>浏览({{see}})</span></p>
+									<div class="adress">
+										<ol class="breadcrumb">
+										<span class="glyphicon glyphicon-map-marker"></span>
+										<li><a href="index.html">主页</a></li>
+										<li><a href="FoodDIY.html">美食资讯</a></li>
+										<li class="active">{{title}}</li>
+										</ol>
 									</div>
-								</li>
-							{{/each}}
+								</div>
+								<div class="main-content-body">
+									{{{content}}}
+								</div>
+								<div class="main-content-nav">
+									<nav>
+									<ul class="pager">
+										<li><a href="#">上一页</a></li>
+										<li><a href="#">下一页</a></li>
+									</ul>
+									</nav>
+								</div>
+							</div>
 						</script>
 						
-						<ul id="foodDIY-list">
+						<div class="main-show">
 							
-						</ul>
-						<nav>
-						  	<ul class="pagination">
-								<li>
-									<a href="#" aria-label="Previous">
-										<span aria-hidden="true">&laquo;</span>
-									</a>
-								</li>
-								<li>
-									<a href="#">1</a>
-								</li>
-								<li>
-									<a href="#">2</a>
-								</li>
-								<li>
-									<a href="#">3</a>
-								</li>
-								<li>
-									<a href="#">4</a>
-								</li>
-								<li>
-									<a href="#">5</a>
-								</li>
-								<li>
-									<a href="#" aria-label="Next">
-										<span aria-hidden="true">&raquo;</span>
-									</a>
-								</li>
-							</ul>
-						</nav>
+						</div>
+						
 					</div>
 					<div class="col-md-4 col-sm-4 col-xs-12">
 						<div class="search">
@@ -196,19 +171,49 @@
 	    	</div>
 	    </footer>
 		</div>
-		
-		
 		<script src="js/date/foodDIY.js" type="text/javascript" charset="utf-8"></script>
 		<script>
-			function _request_foodDIY(){
-				return foodDIY;
-			}
+			// function _request_main_news(){
+			// 	return mainNews;
+			// }
 			$(function(){
-				var templateScript = $('#template').html();
+				var a = location.search.split('?');
+				var b = a[1].split('=');
+				for(var i= 0;i<foodDIY.length;i++){
+					if(b[1] == foodDIY[i].id){
+						 //抓取模板数据
+						var theTemplateScript = $('#main-template').html();
+
+						//编译模板
+						var theTemplate = Handlebars.compile(theTemplateScript);
+
+						//定义数据
+						var context = {
+							"title":foodDIY[i].title,
+							"content":foodDIY[i].content,
+							"putDate":foodDIY[i].putDate,
+							"see":foodDIY[i].see,
+							"author":foodDIY[i].author
+						};
+
+						//传递数据
+						var theCompiledHtml = theTemplate(context);
+
+						//展示到页面
+						$(".main-show").html(theCompiledHtml);
+
+
+
+
+					}
+				}
+
+				function _request_foodDIY(){
+					return foodDIY;
+				}
 				var hotDIYtemplateScript = $('#hot-DIY-template').html();
 				var newDIYtemplateScript = $('#new-DIY-template').html();
 
-				var template = Handlebars.compile(templateScript);
 				var hotDIYtemplate = Handlebars.compile(hotDIYtemplateScript);
 				var newDIYtemplate = Handlebars.compile(newDIYtemplateScript);
 				
@@ -216,20 +221,12 @@
 					foodDIY:_request_foodDIY()
 				}
 				
-				var compiledHtml = template(context);
 				var hotDIYcompiledHtml = hotDIYtemplate(context);
 				var newDIYcompiledHtml = newDIYtemplate(context);
 				
-				$('#foodDIY-list').append(compiledHtml);
 				$('#hot-DIY-content').append(hotDIYcompiledHtml);
 				$('#new-DIY-content').append(newDIYcompiledHtml);
-				
-				$('#myCarousel').carousel({
-					//设置自动播放/2 秒
-					interval : 3000,
-				});
 			})
-			
 			
 		</script>
 	</body>

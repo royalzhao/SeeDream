@@ -8,7 +8,7 @@
 		<link rel="stylesheet" type="text/css" href="css/main.css"/>
 		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-		
+		<script src="js/handlebars-v4.0.10.js" type="text/javascript" charset="utf-8" ></script>
 	</head>
 	<body>
 		<div id="main">
@@ -54,25 +54,33 @@
 						      	<div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
 						    </div>
 						</div>
-						<ul v-for="m in main_list">
+						<script id="example-template" type="text/x-handlebars-template">
 							
+							<!--遍历news  -->
+							{{#each news}}
+
 							<li>
 								<div class="row">
 									<div class="col-md-4 col-sm-4 col-xs-12">
 										<div>
-											<img :src="m.img"/>
+											<img src="{{img}}"/>
 										</div>
 									</div>
 									<div class="col-md-8 col-sm-8 col-xs-12">
-										<a href="main-content.html"><h4>{{m.title}}</h4></a>
-										<p>{{m.abstract}}</p>
-										<span>发布日期：{{m.putDate}}</span><span>浏览：{{m.see}}</span><span>作者：{{m.author}}</span>
+										<a href="main-content.html?id={{id}}"><h4>{{title}}</h4></a>
+										<p>{{abstract}}</p>
+										<span>发布日期：{{putDate}}</span><span>浏览：{{see}}</span><span>作者：{{author}}</span>
 									</div>
 								</div>
 							</li>
 							
+							{{/each}}
+						</script>
+						
+						<ul id="main-list">
 							
 						</ul>
+						
 						<nav>
 						  	<ul class="pagination">
 								<li>
@@ -114,28 +122,34 @@
 							<div class="hot-news-head">
 								<h4>热门排行</h4>
 							</div>
-							<ul>
-								<li><a href="#">文章1</a><span>(浏览：754)</span></li>
-								<li><a href="#">文章2</a><span>(浏览：754)</span></li>
-								<li><a href="#">文章3</a><span>(浏览：754)</span></li>
-								<li><a href="#">文章4</a><span>(浏览：754)</span></li>
-								<li><a href="#">文章5</a><span>(浏览：754)</span></li>
-								<li><a href="#">文章6</a><span>(浏览：754)</span></li>
-								<li><a href="#">文章7</a><span>(浏览：754)</span></li>
+							<script id="news-hot-template" type="text/x-handlebars-template">
+							
+								<!--遍历news  -->
+								{{#each news}}
+
+								<li><a href="main-content.html?id={{id}}">{{title}}</a><span>(浏览：{{see}})</span></li>
+								
+								{{/each}}
+							</script>
+							<ul id="news-hot">
+								
 							</ul>
 						</div>	
 						<div class="new-news">
 							<div class="new-news-head">
 								<h4>最新文章</h4>
 							</div>
-							<ul>
-								<li><a href="#">文章1</a><span>(3分钟前)</span></li>
-								<li><a href="#">文章2</a><span>(3分钟前)</span></li>
-								<li><a href="#">文章3</a><span>(10分钟前)</span></li>
-								<li><a href="#">文章4</a><span>(20分钟前)</span></li>
-								<li><a href="#">文章5</a><span>(2017-08-01)</span></li>
-								<li><a href="#">文章6</a><span>(2017-08-01)</span></li>
-								<li><a href="#">文章7</a><span>(2017-08-01)</span></li>
+							<script id="news-article-template" type="text/x-handlebars-template">
+							
+								<!--遍历news  -->
+								{{#each news}}
+
+								<li><a href="main-content.html?id={{id}}">{{title}}</a><span>({{putDate}})</span></li>
+								
+								{{/each}}
+							</script>
+							<ul id="news-article">
+								
 							</ul>
 						</div>	
 						<div class="active-news">
@@ -191,22 +205,41 @@
 	    </footer>
 	    </div>
 		
-		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		
 		<script src="js/date/mainNews.js" type="text/javascript" charset="utf-8"></script>
 		<script>
 			function _request_main_news(){
 				return mainNews;
 			}
-			var main = new Vue({
-				el:"#main",
-				data:{
-					main_list:_request_main_news()
-				}
-			});
-			$('#myCarousel').carousel({
-				//设置自动播放/2 秒
-				interval : 3000,
-			});
+			 $(function(){
+				//获取模板数据
+				var theTemplateScript = $('#example-template').html();
+				var NewsHotTemplateScript =  $('#news-hot-template').html();
+				var NewsArticleTemplateScript = $('#news-article-template').html();
+				//Handlebars.compile编译模板
+				var theTemplate = Handlebars.compile(theTemplateScript);
+				var NewsHotTemplate = Handlebars.compile(NewsHotTemplateScript);
+				var NewsArticleTemplate = Handlebars.compile(NewsArticleTemplateScript);
+				//定义数据
+				var context = {
+					news:_request_main_news(),
+				};
+				
+				//把数据传送到模板
+				var theCompiledHtml = theTemplate(context);
+				var HotNewsCompiledHtml = NewsHotTemplate(context);
+				var NewsArticleCompiledHtml = NewsArticleTemplate(context);
+				//更新到模板
+				$("#main-list").append(theCompiledHtml);
+				$("#news-hot").append(HotNewsCompiledHtml);
+				$("#news-article").append(NewsArticleCompiledHtml);
+				
+				$('#myCarousel').carousel({
+					//设置自动播放/2 秒
+					interval : 3000,
+				});
+			})
+			
 		</script>
 	</body>
 </html>

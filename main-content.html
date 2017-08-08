@@ -8,7 +8,7 @@
 		<link rel="stylesheet" type="text/css" href="css/main.css"/>
 		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-		
+		<script src="js/handlebars-v4.0.10.js" type="text/javascript" charset="utf-8" ></script>
 	</head>
 	<body>
 		<div id="main-content">
@@ -48,60 +48,36 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-sm-8 col-xs-12" >
-						<div class="main-content">
-							<div class="main-content-head">
-								<h3>营养助力 健康中国 百胜中国肯德基餐饮健康基金在珠海召开研讨会</h3>
-								<p><span>发布时间：2017-06-20 14:31</span><span>编辑:admin</span><span>浏览(154)</span></p>
-								<div class="adress">
-									<ol class="breadcrumb">
-									  <span class="glyphicon glyphicon-map-marker"></span>
-									  <li><a href="index.html">主页</a></li>
-									  <li><a href="main.html">美食资讯</a></li>
-									  <li class="active">百胜中国肯德基餐饮健康基金在珠海召开</li>
-									</ol>
+						 <script id="main-template" type="text/x-handlebars-template">
+							<div class="main-content">
+								<div class="main-content-head">
+									<h3>{{title}}</h3>
+									<p><span>发布时间：{{putDate}}</span><span>编辑:{{author}}</span><span>浏览({{see}})</span></p>
+									<div class="adress">
+										<ol class="breadcrumb">
+										<span class="glyphicon glyphicon-map-marker"></span>
+										<li><a href="index.html">主页</a></li>
+										<li><a href="main.html">美食资讯</a></li>
+										<li class="active">{{title}}</li>
+										</ol>
+									</div>
+								</div>
+								<div class="main-content-body">
+									{{{content}}}
+								</div>
+								<div class="main-content-nav">
+									<nav>
+									<ul class="pager">
+										<li><a href="#">上一页</a></li>
+										<li><a href="#">下一页</a></li>
+									</ul>
+									</nav>
 								</div>
 							</div>
-							<div class="main-content-body">
-								
-								<p>11月29日，“百胜中国肯德基餐饮健康基金”第九届学术研讨会在珠海召开。本次研讨会以“营养助力，健康中国”为主题，来自百胜中国与中国红十字基金会的代表、营养健康领域的专家与学者、政府相关部门代表与媒体友人共同就“营养”与“健康”话题展开了热烈讨论。</p>
-								
-								<p>百胜中国首席执行官潘伟奇(Micky Pant)先生通过视频发来寄语，潘伟奇先生表示：“作为中国最大的餐饮连锁企业，百胜中国一直致力于为消费者提供美味营养的饮食，并愿意为中国的营养事业尽自己的微薄之力。”中国红十字基金会副理事长刘选国致开幕词。肯德基中国CEO屈翠容女士（Joey Wat）也派代表宣读了她的欢迎辞。</p>
-								
-								<p>中国红十字基金会副理事长刘选国在百胜中国肯德基餐饮健康基金第九届学术研讨会上致辞</p>
-								
-								<p>肯德基中国CEO屈翠容女士（Joey Wat）委派肯德基大区营运副总裁汪涛在大会上宣读欢迎词</p>
-								
-								<p>“肯德基餐饮健康基金”2007年成立至今，已有九年。刘选国先生代表中国红基会衷心感谢了百胜中国长期以来付出的努力。他表示：“九年来，百胜一直把均衡膳食和食品安全放在一切工作的首位，把推动饮食健康、提倡平衡膳食当作是自己义不容辞的社会责任。”</p>
-								
-								<p>刘选国先生同时指出，中国红基会，作为一家唯一通过ISO认证的全国5A级基金会，也一直以弘扬人道、博爱、奉献的红十字精神为宗旨，致力于从保护生命健康、改善生存发展境况、维护人格尊严三个方面，构建中国人道主义公益伦理和行动体系。“双方的完美结合，使得慈善与商业相得益彰。”</p>
-								
-								<p>十三五规划将“健康中国”提升为国家战略，这是一项惠及长远的制度性安排。党的十八届五中全会认为，健康是促进人的全面发展的必然要求，是经济社会发展的基础条件，是民族昌盛和国家富强的重要标志，也是广大人民群众的共同追求。</p>
-								
-								<p>国家食品安全风险评估中心研究员、总顾问、中国工程院院士陈君石解读了“‘健康中国2030’规划纲要”。</p>
-								
-								<p>国家食品安全风险评估中心总顾问、中国工程院院士陈君石在百胜中国肯德基餐饮健康基金第九届学术研讨会解读了“‘健康中国2030’规划纲要”</p>
-								
-								<p>全民健康是建设健康中国的根本目的，陈君石院士认为，普及营养知识、推广合理膳食、开展全民健身运动，可以为实现中国的“营养梦、健康梦”助力。他表示：“对于普通人来说，塑造自主自律的健康行为，第一条就是引导合理膳食。此外,做到吃动两平衡也很是关键。”</p>
-								
-								<p>复旦大学营养与食品卫生学教授、中国营养学会秘书长郭红卫和中山大学公共卫生学院营养系教授、中国营养学会妇幼分会主任委员苏宜香两位教授带领与会代表和专家一起学习了《中国居民膳食指南（2016）》，从而更深入的了解“健康中国”的国策。</p>
-								
-								<p>复旦大学营养与食品卫生学教授、中国营养学会秘书长郭红卫在大会上解读《中国居民膳食指南（2016）》</p>
-								
-								
-								<p>中山大学公共卫生学院营养系教授、中国营养学会妇幼分会主任委员苏宜香教授在大会上解读《中国居民膳食指南（2016）》</p>
-								
-								<p>研讨会现场还公布了肯德基餐饮健康基金今年赞助项目。据了解，基金今年共收到15个投标项目，经过评选，最终有5个项目获得资助。</p>
-								
-								<p>百胜中国公共事务副总裁王立志女士为百胜中国肯德基餐饮健康基金2016年度资助项目授牌</p>
-							</div>
-							<div class="main-content-nav">
-								<nav>
-								  <ul class="pager">
-								    <li><a href="#">上一页</a></li>
-								    <li><a href="#">下一页</a></li>
-								  </ul>
-								</nav>
-							</div>
+						</script>
+						
+						<div class="main-show">
+							
 						</div>
 						
 					</div>
@@ -116,28 +92,34 @@
 							<div class="hot-news-head">
 								<h4>热门排行</h4>
 							</div>
-							<ul>
-								<li><a href="#">文章1</a><span>(浏览：754)</span></li>
-								<li><a href="#">文章2</a><span>(浏览：754)</span></li>
-								<li><a href="#">文章3</a><span>(浏览：754)</span></li>
-								<li><a href="#">文章4</a><span>(浏览：754)</span></li>
-								<li><a href="#">文章5</a><span>(浏览：754)</span></li>
-								<li><a href="#">文章6</a><span>(浏览：754)</span></li>
-								<li><a href="#">文章7</a><span>(浏览：754)</span></li>
+							<script id="news-hot-template" type="text/x-handlebars-template">
+							
+								<!--遍历news  -->
+								{{#each news}}
+
+								<li><a href="main-content.html?id={{id}}">{{title}}</a><span>(浏览：{{see}})</span></li>
+								
+								{{/each}}
+							</script>
+							<ul id="news-hot">
+								
 							</ul>
 						</div>	
 						<div class="new-news">
 							<div class="new-news-head">
 								<h4>最新文章</h4>
 							</div>
-							<ul>
-								<li><a href="#">文章1</a><span>(3分钟前)</span></li>
-								<li><a href="#">文章2</a><span>(3分钟前)</span></li>
-								<li><a href="#">文章3</a><span>(10分钟前)</span></li>
-								<li><a href="#">文章4</a><span>(20分钟前)</span></li>
-								<li><a href="#">文章5</a><span>(2017-08-01)</span></li>
-								<li><a href="#">文章6</a><span>(2017-08-01)</span></li>
-								<li><a href="#">文章7</a><span>(2017-08-01)</span></li>
+							<script id="news-article-template" type="text/x-handlebars-template">
+							
+								<!--遍历news  -->
+								{{#each news}}
+
+								<li><a href="main-content.html?id={{id}}">{{title}}</a><span>({{putDate}})</span></li>
+								
+								{{/each}}
+							</script>
+							<ul id="news-article">
+								
 							</ul>
 						</div>	
 						<div class="active-news">
@@ -191,20 +173,66 @@
 				<p>(c) Copyright 2017 赵帅-zs. All Rights Reserved. </p>
 	    	</div>
 	    </footer>
-	    </div>
-		
-		<!--<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		</div>
 		<script src="js/date/mainNews.js" type="text/javascript" charset="utf-8"></script>
 		<script>
-			function _request_main_news(){
-				return mainNews;
-			}
-			var main = new Vue({
-				el:"#main",
-				data:{
-					main_list:_request_main_news()
+			// function _request_main_news(){
+			// 	return mainNews;
+			// }
+			$(function(){
+				var a = location.search.split('?');
+				var b = a[1].split('=');
+				for(var i= 0;i<mainNews.length;i++){
+					if(b[1] == mainNews[i].id){
+						 //抓取模板数据
+						var theTemplateScript = $('#main-template').html();
+
+						//编译模板
+						var theTemplate = Handlebars.compile(theTemplateScript);
+
+						//定义数据
+						var context = {
+							"title":mainNews[i].title,
+							"content":mainNews[i].content,
+							"putDate":mainNews[i].putDate,
+							"see":mainNews[i].see,
+							"author":mainNews[i].author
+						};
+
+						//传递数据
+						var theCompiledHtml = theTemplate(context);
+
+						//展示到页面
+						$(".main-show").html(theCompiledHtml);
+
+
+
+
+					}
 				}
-			});
-		</script>-->
+				function _request_main_news(){
+					return mainNews;
+				}
+
+				//获取模板数据
+				var NewsHotTemplateScript =  $('#news-hot-template').html();
+				var NewsArticleTemplateScript = $('#news-article-template').html();
+				//Handlebars.compile编译模板
+				var NewsHotTemplate = Handlebars.compile(NewsHotTemplateScript);
+				var NewsArticleTemplate = Handlebars.compile(NewsArticleTemplateScript);
+				//定义数据
+				var context = {
+					news:_request_main_news(),
+				};
+				
+				//把数据传送到模板
+				var HotNewsCompiledHtml = NewsHotTemplate(context);
+				var NewsArticleCompiledHtml = NewsArticleTemplate(context);
+				//更新到模板
+				$("#news-hot").append(HotNewsCompiledHtml);
+				$("#news-article").append(NewsArticleCompiledHtml);
+			})
+			
+		</script>
 	</body>
 </html>
