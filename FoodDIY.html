@@ -50,8 +50,8 @@
 					<div class="col-md-8 col-sm-8 col-xs-12">
 						<div class="search">
 							<div class="input-group">
-						      	<input type="search" class="form-control" id="search-input" placeholder="搜索">
-						      	<div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+						      	<input type="search" class="form-control" id="search-input-x" placeholder="搜索">
+						      	<div class="input-group-addon search-button-x"><span class="glyphicon glyphicon-search"></span></div>
 						    </div>
 						</div>
 						<script id="template" type="text/x-handlebars-template">
@@ -109,8 +109,8 @@
 					<div class="col-md-4 col-sm-4 col-xs-12">
 						<div class="search">
 							<div class="input-group">
-						      	<input type="search" class="form-control" id="search-input" placeholder="搜索">
-						      	<div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+						      	<input type="search" class="form-control" id="search-input-l" placeholder="搜索">
+						      	<div class="input-group-addon search-button-l"><span class="glyphicon glyphicon-search"></span></div>
 						    </div>
 						</div>
 						<div class="hot-news">
@@ -228,6 +228,49 @@
 					//设置自动播放/2 秒
 					interval : 3000,
 				});
+
+
+
+				//页面查询
+				function mouse(id,href){
+					var searchValue = $(id).val();
+					var data = {
+						"searchValue":searchValue
+					};
+					var newsearchValue = JSON.stringify(data);
+					localStorage.setItem('foodkey',newsearchValue);
+					location.href = href;
+				}
+				function keyDown(id,href){
+					var searchValue = $(id).val();
+					var data = {
+						"searchValue":searchValue
+					};
+					var newsearchValue = JSON.stringify(data);
+					localStorage.setItem('foodkey',newsearchValue);
+					location.href = href;
+				}
+
+				$('.search-button-l').click(function(){
+					mouse("#search-input-l","FoodDIY-search.html");
+				});
+				
+				 $('#search-input-l').bind('keydown',function(e){
+					if(e.which == 13){
+						mouse("#search-input-l","FoodDIY-search.html");
+					}
+				 })
+
+				$('.search-button-x').click(function(){
+					mouse("#search-input-x","FoodDIY-search.html");
+				})
+
+				 $('#search-input-x').bind('keydown',function(e){
+					if(e.which == 13){
+						mouse("#search-input-x","FoodDIY-search.html");
+					}
+				 })
+
 			})
 			
 			

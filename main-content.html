@@ -84,8 +84,8 @@
 					<div class="col-md-4 col-sm-4 col-xs-12">
 						<div class="search">
 							<div class="input-group">
-						      	<input type="search" class="form-control" id="search-input" placeholder="搜索">
-						      	<div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+						      	<input type="search" class="form-control" id="search-input-l" placeholder="搜索">
+						      	<div class="input-group-addon search-button-l"><span class="glyphicon glyphicon-search"></span></div>
 						    </div>
 						</div>
 						<div class="hot-news">
@@ -231,6 +231,48 @@
 				//更新到模板
 				$("#news-hot").append(HotNewsCompiledHtml);
 				$("#news-article").append(NewsArticleCompiledHtml);
+
+
+
+				//页面查询
+				function mouse(id,href){
+					var searchValue = $(id).val();
+					var data = {
+						"searchValue":searchValue
+					};
+					var newsearchValue = JSON.stringify(data);
+					localStorage.setItem('key',newsearchValue);
+					location.href = href;
+				}
+				function keyDown(id,href){
+					var searchValue = $(id).val();
+					var data = {
+						"searchValue":searchValue
+					};
+					var newsearchValue = JSON.stringify(data);
+					localStorage.setItem('key',newsearchValue);
+					location.href = href;
+				}
+
+				$('.search-button-l').click(function(){
+					mouse("#search-input-l","main-search.html");
+				});
+				
+				 $('#search-input-l').bind('keydown',function(e){
+					if(e.which == 13){
+						mouse("#search-input-l","main-search.html");
+					}
+				 })
+
+				$('.search-button-x').click(function(){
+					mouse("#search-input-x","main-search.html");
+				})
+
+				 $('#search-input-x').bind('keydown',function(e){
+					if(e.which == 13){
+						mouse("#search-input-x","main-search.html");
+					}
+				 })
 			})
 			
 		</script>

@@ -50,71 +50,23 @@
 					<div class="col-md-8 col-sm-8 col-xs-12" >
 						<div class="search">
 							<div class="input-group">
-						      	<input type="search" class="form-control search-input" id="search-input-x" placeholder="搜索">
+						      	<input type="search" class="form-control" id="search-input-x" placeholder="搜索">
 						      	<div class="input-group-addon search-button-x"><span class="glyphicon glyphicon-search"></span></div>
 						    </div>
 						</div>
-						<script id="example-template" type="text/x-handlebars-template">
-							
-							<!--遍历news  -->
-							{{#each news}}
-
-							<li>
-								<div class="row">
-									<div class="col-md-4 col-sm-4 col-xs-12">
-										<div>
-											<img src="{{img}}"/>
-										</div>
-									</div>
-									<div class="col-md-8 col-sm-8 col-xs-12">
-										<a href="main-content.html?id={{id}}"><h4>{{title}}</h4></a>
-										<p>{{abstract}}</p>
-										<span>发布日期：{{putDate}}</span><span>浏览：{{see}}</span><span>作者：{{author}}</span>
-									</div>
-								</div>
-							</li>
-							
-							{{/each}}
+						
 						</script>
 						
 						<ul id="main-list">
-							
+                            <li style="text-align:center; color:#999;">暂未找到</li>
 						</ul>
 						
-						<nav>
-						  	<ul class="pagination">
-								<li>
-									<a href="#" aria-label="Previous">
-										<span aria-hidden="true">&laquo;</span>
-									</a>
-								</li>
-								<li>
-									<a href="#">1</a>
-								</li>
-								<li>
-									<a href="#">2</a>
-								</li>
-								<li>
-									<a href="#">3</a>
-								</li>
-								<li>
-									<a href="#">4</a>
-								</li>
-								<li>
-									<a href="#">5</a>
-								</li>
-								<li>
-									<a href="#" aria-label="Next">
-										<span aria-hidden="true">&raquo;</span>
-									</a>
-								</li>
-							</ul>
-						</nav>
+						
 					</div>
 					<div class="col-md-4 col-sm-4 col-xs-12">
 						<div class="search">
 							<div class="input-group">
-						      	<input type="search" class="form-control search-input" id="search-input-l" placeholder="搜索">
+						      	<input type="search" class="form-control" id="search-input-l" placeholder="搜索">
 						      	<div class="input-group-addon search-button-l"><span class="glyphicon glyphicon-search"></span></div>
 						    </div>
 						</div>
@@ -212,12 +164,12 @@
 				return mainNews;
 			}
 			 $(function(){
-				//获取模板数据
-				var theTemplateScript = $('#example-template').html();
+                //获取模板数据
+				
 				var NewsHotTemplateScript =  $('#news-hot-template').html();
 				var NewsArticleTemplateScript = $('#news-article-template').html();
 				//Handlebars.compile编译模板
-				var theTemplate = Handlebars.compile(theTemplateScript);
+				
 				var NewsHotTemplate = Handlebars.compile(NewsHotTemplateScript);
 				var NewsArticleTemplate = Handlebars.compile(NewsArticleTemplateScript);
 				//定义数据
@@ -226,64 +178,40 @@
 				};
 				
 				//把数据传送到模板
-				var theCompiledHtml = theTemplate(context);
+				
 				var HotNewsCompiledHtml = NewsHotTemplate(context);
 				var NewsArticleCompiledHtml = NewsArticleTemplate(context);
 				//更新到模板
-				$("#main-list").append(theCompiledHtml);
+				
 				$("#news-hot").append(HotNewsCompiledHtml);
 				$("#news-article").append(NewsArticleCompiledHtml);
 				
-				// 轮播
 				$('#myCarousel').carousel({
 					//设置自动播放/2 秒
 					interval : 3000,
-				});
+                });
+                
 
-
-				//页面查询
-				function mouse(id,href){
-					var searchValue = $(id).val();
-					var data = {
-						"searchValue":searchValue
-					};
-					var newsearchValue = JSON.stringify(data);
-					localStorage.setItem('key',newsearchValue);
-					location.href = href;
-				}
-				function keyDown(id,href){
-					var searchValue = $(id).val();
-					var data = {
-						"searchValue":searchValue
-					};
-					var newsearchValue = JSON.stringify(data);
-					localStorage.setItem('key',newsearchValue);
-					location.href = href;
-				}
-
+                //页面查询
 				$('.search-button-l').click(function(){
-					mouse("#search-input-l","main-search.html");
+					var searchValue = $("#search-input-l").val();
+					var data = {
+						"searchValue":searchValue
+					};
+					var newsearchValue = JSON.stringify(data);
+					localStorage.setItem('key',newsearchValue);
+					 location.href = 'main-search.html';
 				});
-				
-				 $('#search-input-l').bind('keydown',function(e){
-					if(e.which == 13){
-						mouse("#search-input-l","main-search.html");
-					}
-				 })
 
 				$('.search-button-x').click(function(){
-					mouse("#search-input-x","main-search.html");
+					var searchValue = $("#search-input-x").val();
+					var data = {
+						"searchValue":searchValue
+					};
+					var newsearchValue = JSON.stringify(data);
+					localStorage.setItem('key',newsearchValue);
+					 location.href = 'main-search.html';
 				})
-
-				 $('#search-input-x').bind('keydown',function(e){
-					if(e.which == 13){
-						mouse("#search-input-x","main-search.html");
-					}
-				 })
-
-				
-
-
 			})
 			
 		</script>

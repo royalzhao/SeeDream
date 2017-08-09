@@ -50,7 +50,7 @@
 					<div class="col-md-8 col-sm-8 col-xs-12" >
 						<div class="search">
 							<div class="input-group">
-						      	<input type="search" class="form-control search-input" id="search-input-x" placeholder="搜索">
+						      	<input type="search" class="form-control" id="search-input-x" placeholder="搜索">
 						      	<div class="input-group-addon search-button-x"><span class="glyphicon glyphicon-search"></span></div>
 						    </div>
 						</div>
@@ -114,7 +114,7 @@
 					<div class="col-md-4 col-sm-4 col-xs-12">
 						<div class="search">
 							<div class="input-group">
-						      	<input type="search" class="form-control search-input" id="search-input-l" placeholder="搜索">
+						      	<input type="search" class="form-control" id="search-input-l" placeholder="搜索">
 						      	<div class="input-group-addon search-button-l"><span class="glyphicon glyphicon-search"></span></div>
 						    </div>
 						</div>
@@ -212,12 +212,45 @@
 				return mainNews;
 			}
 			 $(function(){
+                var data = JSON.parse(localStorage.getItem('key'));
+                var arr = [];
+                for(var i= 0;i<mainNews.length;i++){
+                    if(mainNews[i].title.indexOf(data.searchValue) != -1){
+                         arr.push({id:mainNews[i].id,img:mainNews[i].img,title:mainNews[i].title,abstract:mainNews[i].abstract,putDate:mainNews[i].putDate,see:mainNews[i].see,author:mainNews[i].author});
+                    }
+				}
+				
+				if(arr.length != 0){
+					//抓取模板数据
+					var theTemplateScript = $('#example-template').html();
+
+					//编译模板
+					var theTemplate = Handlebars.compile(theTemplateScript);
+
+					//定义数据
+					var context = {
+						news:arr,
+					};
+
+					//传递数据
+					var theCompiledHtml = theTemplate(context);
+
+					//展示到页面
+					$("#main-list").html(theCompiledHtml);
+				}else{
+					location.href = "search-error.html";
+				}
+
+                
+
+                
+
 				//获取模板数据
-				var theTemplateScript = $('#example-template').html();
+				
 				var NewsHotTemplateScript =  $('#news-hot-template').html();
 				var NewsArticleTemplateScript = $('#news-article-template').html();
 				//Handlebars.compile编译模板
-				var theTemplate = Handlebars.compile(theTemplateScript);
+				
 				var NewsHotTemplate = Handlebars.compile(NewsHotTemplateScript);
 				var NewsArticleTemplate = Handlebars.compile(NewsArticleTemplateScript);
 				//定义数据
@@ -226,22 +259,21 @@
 				};
 				
 				//把数据传送到模板
-				var theCompiledHtml = theTemplate(context);
+				
 				var HotNewsCompiledHtml = NewsHotTemplate(context);
 				var NewsArticleCompiledHtml = NewsArticleTemplate(context);
 				//更新到模板
-				$("#main-list").append(theCompiledHtml);
+				
 				$("#news-hot").append(HotNewsCompiledHtml);
 				$("#news-article").append(NewsArticleCompiledHtml);
 				
-				// 轮播
 				$('#myCarousel').carousel({
 					//设置自动播放/2 秒
 					interval : 3000,
-				});
+                });
+                
 
-
-				//页面查询
+               //页面查询
 				function mouse(id,href){
 					var searchValue = $(id).val();
 					var data = {
@@ -280,10 +312,6 @@
 						mouse("#search-input-x","main-search.html");
 					}
 				 })
-
-				
-
-
 			})
 			
 		</script>

@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>美食资讯</title>
+		<title>美食DIY</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="shortcut icon" href="img/icofont.png" />
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
@@ -11,7 +11,7 @@
 		<script src="js/handlebars-v4.0.10.js" type="text/javascript" charset="utf-8" ></script>
 	</head>
 	<body>
-		<div id="main">
+		<div id="DIY">
 		<section class="header">
 			<div class="head">
 				<nav class="navbar  wow fadeInDown" id="header-nav">
@@ -47,40 +47,35 @@
 		<section class="main-container">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-8 col-sm-8 col-xs-12" >
+					<div class="col-md-8 col-sm-8 col-xs-12">
 						<div class="search">
 							<div class="input-group">
-						      	<input type="search" class="form-control search-input" id="search-input-x" placeholder="搜索">
+						      	<input type="search" class="form-control" id="search-input-x" placeholder="搜索">
 						      	<div class="input-group-addon search-button-x"><span class="glyphicon glyphicon-search"></span></div>
 						    </div>
 						</div>
-						<script id="example-template" type="text/x-handlebars-template">
-							
-							<!--遍历news  -->
-							{{#each news}}
-
-							<li>
-								<div class="row">
-									<div class="col-md-4 col-sm-4 col-xs-12">
-										<div>
-											<img src="{{img}}"/>
+						<script id="template" type="text/x-handlebars-template">
+							{{#each foodDIY}}
+								<li>
+									<div class="row">
+										<div class="col-md-4 col-sm-4 col-xs-12">
+											<div>
+												<img src="{{img}}"/>
+											</div>
+										</div>
+										<div class="col-md-8 col-sm-8 col-xs-12">
+											<a href="FoodDIY-content.html?id={{id}}"><h4>{{title}}</h4></a>
+											<p>{{abstract}}</p>
+											<span>发布日期：{{putDate}}</span><span>浏览：{{see}}</span><span>作者：{{author}}</span>
 										</div>
 									</div>
-									<div class="col-md-8 col-sm-8 col-xs-12">
-										<a href="main-content.html?id={{id}}"><h4>{{title}}</h4></a>
-										<p>{{abstract}}</p>
-										<span>发布日期：{{putDate}}</span><span>浏览：{{see}}</span><span>作者：{{author}}</span>
-									</div>
-								</div>
-							</li>
-							
+								</li>
 							{{/each}}
 						</script>
 						
-						<ul id="main-list">
+						<ul id="foodDIY-list">
 							
 						</ul>
-						
 						<nav>
 						  	<ul class="pagination">
 								<li>
@@ -114,41 +109,38 @@
 					<div class="col-md-4 col-sm-4 col-xs-12">
 						<div class="search">
 							<div class="input-group">
-						      	<input type="search" class="form-control search-input" id="search-input-l" placeholder="搜索">
+						      	<input type="search" class="form-control" id="search-input-l" placeholder="搜索">
 						      	<div class="input-group-addon search-button-l"><span class="glyphicon glyphicon-search"></span></div>
 						    </div>
 						</div>
 						<div class="hot-news">
 							<div class="hot-news-head">
-								<h4>热门排行</h4>
+								<h4>评分最高</h4>
 							</div>
-							<script id="news-hot-template" type="text/x-handlebars-template">
+							<script id="hot-DIY-template" type="text/x-handlebars-template">
 							
 								<!--遍历news  -->
-								{{#each news}}
-
-								<li><a href="main-content.html?id={{id}}">{{title}}</a><span>(浏览：{{see}})</span></li>
-								
+								{{#each foodDIY}}
+									<li><a href="FoodDIY-content.html?id={{id}}">{{title}}</a><span>{{{star}}}</span></li>
 								{{/each}}
 							</script>
-							<ul id="news-hot">
+							<ul id="hot-DIY-content">
+								<!-- <li><a href="#">文章1</a><span><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i><i class="glyphicon glyphicon-star"></i></span></li> -->
 								
 							</ul>
 						</div>	
 						<div class="new-news">
 							<div class="new-news-head">
-								<h4>最新文章</h4>
+								<h4>最新DIY</h4>
 							</div>
-							<script id="news-article-template" type="text/x-handlebars-template">
-							
+							<script id="new-DIY-template" type="text/x-handlebars-template">
 								<!--遍历news  -->
-								{{#each news}}
-
-								<li><a href="main-content.html?id={{id}}">{{title}}</a><span>({{putDate}})</span></li>
-								
+								{{#each foodDIY}}
+									<li><a href="FoodDIY-content.html?id={{id}}">{{title}}</a><span>({{putDate}})</span></li>
+									
 								{{/each}}
 							</script>
-							<ul id="news-article">
+							<ul id="new-DIY-content">
 								
 							</ul>
 						</div>	
@@ -203,52 +195,78 @@
 				<p>(c) Copyright 2017 赵帅-zs. All Rights Reserved. </p>
 	    	</div>
 	    </footer>
-	    </div>
+		</div>
 		
 		
-		<script src="js/date/mainNews.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/date/foodDIY.js" type="text/javascript" charset="utf-8"></script>
 		<script>
-			function _request_main_news(){
-				return mainNews;
+			function _request_foodDIY(){
+				return foodDIY;
 			}
-			 $(function(){
-				//获取模板数据
-				var theTemplateScript = $('#example-template').html();
-				var NewsHotTemplateScript =  $('#news-hot-template').html();
-				var NewsArticleTemplateScript = $('#news-article-template').html();
-				//Handlebars.compile编译模板
-				var theTemplate = Handlebars.compile(theTemplateScript);
-				var NewsHotTemplate = Handlebars.compile(NewsHotTemplateScript);
-				var NewsArticleTemplate = Handlebars.compile(NewsArticleTemplateScript);
-				//定义数据
+			$(function(){
+
+                var data = JSON.parse(localStorage.getItem('foodkey'));
+                var arr = [];
+                for(var i= 0;i<foodDIY.length;i++){
+                    if(foodDIY[i].title.indexOf(data.searchValue) != -1){
+                         arr.push({id:foodDIY[i].id,img:foodDIY[i].img,title:foodDIY[i].title,abstract:foodDIY[i].abstract,putDate:foodDIY[i].putDate,see:foodDIY[i].see,author:foodDIY[i].author});
+                       
+                    }
+                }
+
+                if(arr.length != 0){
+                    //抓取模板数据
+                    var theTemplateScript = $('#template').html();
+
+                    //编译模板
+                    var theTemplate = Handlebars.compile(theTemplateScript);
+
+                    //定义数据
+                    var context = {
+                        foodDIY:arr,
+                    };
+
+                    //传递数据
+                    var theCompiledHtml = theTemplate(context);
+
+                    //展示到页面
+                    $("#foodDIY-list").html(theCompiledHtml);
+                }else{
+                    location.href = "search-error.html";
+                }
+
+                
+
+
+				var hotDIYtemplateScript = $('#hot-DIY-template').html();
+				var newDIYtemplateScript = $('#new-DIY-template').html();
+
+				var hotDIYtemplate = Handlebars.compile(hotDIYtemplateScript);
+				var newDIYtemplate = Handlebars.compile(newDIYtemplateScript);
+				
 				var context = {
-					news:_request_main_news(),
-				};
+					foodDIY:_request_foodDIY()
+				}
 				
-				//把数据传送到模板
-				var theCompiledHtml = theTemplate(context);
-				var HotNewsCompiledHtml = NewsHotTemplate(context);
-				var NewsArticleCompiledHtml = NewsArticleTemplate(context);
-				//更新到模板
-				$("#main-list").append(theCompiledHtml);
-				$("#news-hot").append(HotNewsCompiledHtml);
-				$("#news-article").append(NewsArticleCompiledHtml);
+				var hotDIYcompiledHtml = hotDIYtemplate(context);
+				var newDIYcompiledHtml = newDIYtemplate(context);
 				
-				// 轮播
+				$('#hot-DIY-content').append(hotDIYcompiledHtml);
+				$('#new-DIY-content').append(newDIYcompiledHtml);
+				
 				$('#myCarousel').carousel({
 					//设置自动播放/2 秒
 					interval : 3000,
-				});
-
-
-				//页面查询
+                });
+                
+                //页面查询
 				function mouse(id,href){
 					var searchValue = $(id).val();
 					var data = {
 						"searchValue":searchValue
 					};
 					var newsearchValue = JSON.stringify(data);
-					localStorage.setItem('key',newsearchValue);
+					localStorage.setItem('foodkey',newsearchValue);
 					location.href = href;
 				}
 				function keyDown(id,href){
@@ -257,34 +275,33 @@
 						"searchValue":searchValue
 					};
 					var newsearchValue = JSON.stringify(data);
-					localStorage.setItem('key',newsearchValue);
+					localStorage.setItem('foodkey',newsearchValue);
 					location.href = href;
 				}
 
 				$('.search-button-l').click(function(){
-					mouse("#search-input-l","main-search.html");
+					mouse("#search-input-l","FoodDIY-search.html");
 				});
 				
 				 $('#search-input-l').bind('keydown',function(e){
 					if(e.which == 13){
-						mouse("#search-input-l","main-search.html");
+						mouse("#search-input-l","FoodDIY-search.html");
 					}
 				 })
 
 				$('.search-button-x').click(function(){
-					mouse("#search-input-x","main-search.html");
+					mouse("#search-input-x","FoodDIY-search.html");
 				})
 
 				 $('#search-input-x').bind('keydown',function(e){
 					if(e.which == 13){
-						mouse("#search-input-x","main-search.html");
+						mouse("#search-input-x","FoodDIY-search.html");
 					}
 				 })
 
-				
-
-
+		
 			})
+			
 			
 		</script>
 	</body>
