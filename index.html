@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>SeeDream主页</title>
+		<title>YIMEI美食</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="shortcut icon" href="img/icofont.png" />
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
@@ -48,7 +48,7 @@
 				        <span class="icon-bar"></span>
 				        <span class="icon-bar"></span>
 				      </button>
-				      <a class="navbar-brand" href="#">See Dream</a>
+				      <a class="navbar-brand" href="#">YIMEI</a>
 				    </div>
 				
 				    <!-- Collect the nav links, forms, and other content for toggling -->
@@ -82,7 +82,7 @@
 		                <div class="item active">
 		                   <img src="img/banner.jpg" style="width:100%;" alt="First slide">
 		                   <div class="carousel-content">
-			                   	<h1 class="animated fadeInLeft">欢迎来到 <span>SeeDream</span></h1>
+			                   	<h1 class="animated fadeInLeft">欢迎来到 <span>YIMEI</span></h1>
 			                 	<a href="#about" class="scrollto"><button class="start animated fadeInRight">Start</button></a>
 		                   </div>
 		                </div>
@@ -126,7 +126,7 @@
 						</p>
 					</div>
 					<div class="col-md-6 col-sm-6 col-xs-12 wow fadeInRight">
-						<img src="img/img8.jpg" class="img-thumbnail" width="100%" />
+						<img src="" data-echo="img/img8.jpg" class="img-thumbnail" width="100%" />
 					</div>
 				</div>
 			</div>
@@ -137,21 +137,21 @@
 				<div class="row">
 					<div class="col-md-4 col-sm-4 col-xs-12 wow flipInY">
 						<div class="team-pic">
-							<img src="img/team/3.jpg"/>
+							<img data-echo="img/team/3.jpg"/>
 						</div>
 						<h5>总经理-Mr.王</h5>
 						<p>20xx年入职，具有丰富的餐饮企业管理经验，带给您宾至如归得感觉</p>
 					</div>
 					<div class="col-md-4 col-sm-4 col-xs-12 wow flipInY">
 						<div class="team-pic">
-							<img src="img/team/2.jpg"/>
+							<img data-echo="img/team/2.jpg"/>
 						</div>
 						<h5>厨师长-Mr.Davi</h5>
 						<p>20xx年入职，从业18年，每一道菜都用心加工，曾获得20xx届中国好厨师大赛一等奖</p>
 					</div>
 					<div class="col-md-4 col-sm-4 col-xs-12 wow flipInY">
 						<div class="team-pic">
-							<img src="img/team/4.jpg"/>
+							<img data-echo="img/team/4.jpg"/>
 						</div>
 						<h5>大堂经理-Mis.liu</h5>
 						<p>20xx年入职，从业10年，具有丰富的接待服务管理经验</p>
@@ -438,9 +438,9 @@
 					<li><a href="FoodDIY.html">美食DIY</a></li>
 				</ul>
 			</nav>
-			<h2>See Dream</h2>
+			<h2>YIMEI</h2>
 			<p>电话:1234-1234567&nbsp; &nbsp; 邮箱:royal_zhaoshai@163.com &nbsp; &nbsp; 地址:中国北京 </p>
-			<p>(c) Copyright 2017 赵帅-zs. All Rights Reserved. </p>
+			<p>(c) Copyright 2017. All Rights Reserved. </p>
     	</div>
     </footer>
    
@@ -458,6 +458,7 @@
     <script type="text/javascript" src="js/date/nav.js" ></script>
     <script type="text/javascript" src="js/vue.js" ></script>
     <script src="js/date/recommond.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/echo.min.js" type="text/javascript" charset="utf-8"></script>
     <script>
     	function _request_nav1(){
 			return nav1;
@@ -478,7 +479,10 @@
 				recommond_list:_request_recommond()
 			}
 		});
-
+		Echo.init({
+			offset: 0,//离可视区域多少像素的图片可以被加载
+		　　 throttle: 0 //图片延时多少毫秒加载
+		}); 
     </script>
 	</body>
 </html>
